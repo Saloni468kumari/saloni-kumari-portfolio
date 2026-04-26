@@ -6,6 +6,7 @@ import { Skills } from "./components/portfolio/Skills";
 import { Projects } from "./components/portfolio/Projects";
 import { Services } from "./components/portfolio/Services";
 import { Contact } from "./components/portfolio/Contact";
+import { Footer } from "./components/portfolio/Footer";
 
 function App() {
   const [theme, setTheme] = useState<"dark" | "light">(() => {
@@ -28,6 +29,8 @@ function App() {
         <Services />
         <Contact />
       </main>
+
+      <Footer />
     </div>
   );
 }
