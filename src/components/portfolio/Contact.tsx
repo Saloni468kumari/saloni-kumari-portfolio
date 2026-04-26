@@ -7,7 +7,6 @@ import {
   Mail,
   Phone,
   ArrowUpRight,
-  type LucideIcon,
 } from "lucide-react";
 
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -59,18 +58,18 @@ export function Contact() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (!formRef.current) return;
 
     setSending(true);
     setError(null);
 
     try {
+      // Vite mein environment variables import.meta.env se access hote hain
       await emailjs.sendForm(
-        "service_eh4y2qp",
-        "template_kbfh2i7",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_eh4y2qp",
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_kbfh2i7",
         formRef.current,
-        "Ask79iipSd3wuz_YY"
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "Ask79iipSd3wuz_YY"
       );
 
       setSent(true);
@@ -88,15 +87,12 @@ export function Contact() {
 
   return (
     <section id="contact" className="relative py-28">
-      {/* glow */}
       <div className="absolute left-1/2 top-0 -z-10 h-[400px] w-[800px] -translate-x-1/2 rounded-full bg-purple-500/10 blur-[140px]" />
 
       <div className="mx-auto max-w-7xl px-6">
         <SectionLabel n="05" label="Contact" />
 
         <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_1.1fr]">
-          
-          {/* LEFT SIDE */}
           <div>
             <h2 className="text-5xl md:text-6xl font-bold leading-tight">
               Let's build{" "}
@@ -104,16 +100,13 @@ export function Contact() {
                 something brilliant
               </span>
             </h2>
-
             <p className="mt-6 text-lg text-gray-400 max-w-md">
               Have a project or opportunity? Drop a message — I usually reply within a day.
             </p>
 
-            {/* SOCIAL LINKS */}
             <div className="mt-10 grid gap-3">
               {socials.map((s) => {
                 const Icon = s.icon;
-
                 return (
                   <motion.a
                     key={s.label}
@@ -127,15 +120,11 @@ export function Contact() {
                       <span className="grid h-10 w-10 place-items-center rounded-xl bg-purple-500/10 text-purple-400">
                         <Icon className="h-4 w-4" />
                       </span>
-
                       <div>
-                        <div className="text-xs uppercase text-gray-400">
-                          {s.label}
-                        </div>
+                        <div className="text-xs uppercase text-gray-400">{s.label}</div>
                         <div className="font-medium">{s.value}</div>
                       </div>
                     </div>
-
                     <ArrowUpRight className="h-4 w-4 text-gray-400" />
                   </motion.a>
                 );
@@ -143,16 +132,13 @@ export function Contact() {
             </div>
           </div>
 
-          {/* RIGHT SIDE FORM */}
           <motion.form
             ref={formRef}
             onSubmit={handleSubmit}
             className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 shadow-xl"
           >
             <div className="grid gap-5">
-              
               <Field label="Your name" name="from_name" placeholder="Saloni Kumari" />
-
               <Field
                 label="Email"
                 name="reply_to"
@@ -161,16 +147,10 @@ export function Contact() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-
               <input type="hidden" name="user_email" value={email} />
-
               <Field label="Subject" name="subject" placeholder="Collaboration ✨" />
-
               <div>
-                <label className="text-xs uppercase text-gray-400 font-semibold">
-                  Message
-                </label>
-
+                <label className="text-xs uppercase text-gray-400 font-semibold">Message</label>
                 <textarea
                   name="message"
                   required
@@ -179,9 +159,7 @@ export function Contact() {
                   className="mt-2 w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 focus:outline-none focus:ring-1 focus:ring-purple-500"
                 />
               </div>
-
               {error && <p className="text-red-400 text-sm">{error}</p>}
-
               <button
                 type="submit"
                 disabled={sending}
@@ -197,17 +175,10 @@ export function Contact() {
   );
 }
 
-/* ---------------- FIELD COMPONENT ---------------- */
-function Field({
-  label,
-  ...props
-}: { label: string } & InputHTMLAttributes<HTMLInputElement>) {
+function Field({ label, ...props }: { label: string } & InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div>
-      <label className="text-xs uppercase text-gray-400 font-semibold">
-        {label}
-      </label>
-
+      <label className="text-xs uppercase text-gray-400 font-semibold">{label}</label>
       <input
         required
         {...props}
