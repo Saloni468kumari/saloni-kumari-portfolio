@@ -41,7 +41,7 @@ const projects = [
     stack: ["MongoDB", "React", "Node"],
     badge: "🚗",
     status: "Completed",
-    liveUrl: "#",
+    liveUrl: "https://car-rental-client-one.vercel.app/",
     codeUrl: "https://github.com/Saloni468kumari/car-rental",
   },
 ];
