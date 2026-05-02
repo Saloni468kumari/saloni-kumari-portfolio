@@ -8,12 +8,12 @@ interface Achievement {
 }
 
 const achievements: Achievement[] = [
+  { icon: Award, text: "Full Stack GenAI and Agentic AI · Udemy" },
   { icon: Code2, text: "300+ DSA problems solved" },
   { icon: Award, text: "NPTEL DBMS Certification" },
   { icon: Award, text: "GDSC Web Dev Bootcamp" },
   { icon: Award, text: "Web Development Certification · Udemy" },
   { icon: Award, text: "AWS Cloud Foundations" },
-  { icon: Award, text: "Salesforce Developer" },
 ];
 
 export function SectionLabel({ n, label }: { n: string; label: string }) {

@@ -9,10 +9,9 @@ const ROLES = [
   "Software Engineer",
 ];
 
-// Remove the import lines at the top and just use these:
 const portrait = "/hero-portrait2.png"; 
 const particles = "/src/assets/particles-bg.jpg";
-const resume = "/resume.pdf";
+const resume = "/Saloni_Resume.pdf";
 
 function useTyping(words: string[]) {
   const [text, setText] = useState("");
