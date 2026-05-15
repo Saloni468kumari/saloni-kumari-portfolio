@@ -6,21 +6,21 @@ import { SectionLabel } from "./About";
 const projects = [
   {
     tag: "Flagship",
-    title: "Multi-Agent Career AI",
-    desc: "A multi-agent orchestration system with personalized career roadmap and AI agents.",
-    stack: ["LangGraph", "FastAPI", "RAG"],
-    badge: "🚀",
-    status: "In Progress",
+    title: "Multi-Agent AI Research System",
+    desc: "An autonomous AI system powered by cooperative specialized agents that perform live web search orchestration, deep article content scraping, and hierarchical report generation with structural critic evaluation pipelines.",
+    stack: ["LangChain", "FastAPI", "Tavily API", "Streamlit"],
+    badge: "🔬",
+    status: "In progress",
     liveUrl: "#",
     codeUrl: "#",
   },
   {
     tag: "New",
-    title: "AI Interview Assistant",
-    desc: "AI mock interview system with voice agents and feedback.",
-    stack: ["React", "Python", "RAG"],
-    badge: "🤖",
-    status: "In Progress",
+    title: "AI Video Assistant with RAG",
+    desc: "A production-grade multimedia analysis engine that ingests local files and YouTube URLs, extracts audio waveforms, performs multi-lingual speech transcription via local Whisper arrays or Sarvam AI, and indexes frames into vector storage for query contextualization.",
+    stack: ["LangChain", "Mistral AI", "ChromaDB", "Whisper AI"],
+    badge: "📹",
+    status: "In progress",
     liveUrl: "#",
     codeUrl: "#",
   },
@@ -51,7 +51,6 @@ export function Projects() {
     <section id="projects" className="relative py-28">
       <div className="mx-auto max-w-7xl px-6">
         
-        {/* TOP SECTION */}
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <SectionLabel n="03" label="Selected Work" />
@@ -68,7 +67,6 @@ export function Projects() {
           </p>
         </div>
 
-        {/* PROJECT GRID */}
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           {projects.map((p, i) => (
             <motion.article
@@ -79,7 +77,6 @@ export function Projects() {
               viewport={{ once: true }}
               className="group rounded-3xl border border-border bg-card/40 p-8 transition-all duration-300 hover:border-lavender hover:shadow-[0_0_30px_rgba(168,85,247,0.1)]"
             >
-              {/* HEADER */}
               <div className="flex items-start justify-between">
                 <div className="flex flex-col gap-3">
                   <span className="text-xs font-semibold tracking-wide text-lavender uppercase">
@@ -100,7 +97,6 @@ export function Projects() {
                 <span className="text-2xl">{p.badge}</span>
               </div>
 
-              {/* TITLE & DESC */}
               <h3 className="mt-5 text-2xl font-semibold text-foreground">
                 {p.title}
               </h3>
@@ -109,7 +105,6 @@ export function Projects() {
                 {p.desc}
               </p>
 
-              {/* STACK */}
               <div className="mt-5 flex flex-wrap gap-2">
                 {p.stack.map((s) => (
                   <span
@@ -121,7 +116,6 @@ export function Projects() {
                 ))}
               </div>
 
-              {/* ACTIONS */}
               <div className="mt-7 flex flex-wrap gap-3">
                 <a
                   href={p.liveUrl}
